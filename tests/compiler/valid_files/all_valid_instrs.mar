@@ -1,0 +1,14 @@
+Input
+Load X
+Store Y
+Add Z
+JnS P
+Output
+Skipcond 000
+AddI X
+StoreI Y
+LoadI Z
+Skipcond 400
+JumpI Somewhere_for_sure
+
+Somewhere_for_sure, Dec 20
