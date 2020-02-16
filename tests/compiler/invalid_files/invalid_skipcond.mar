@@ -1,0 +1,5 @@
+Clear
+Load 10
+Subt 10
+Skipcond 700
+Store X

@@ -14,9 +14,20 @@ import marievm.compiler.ast as ast
     (ast.Load('10'), 'Load 10'),
     (ast.LoadI('10'), 'LoadI 10'),
     (ast.Skipcond('400'), 'Skipcond 400'),
+    (ast.DEC('10'), 'DEC 10'),
+    (ast.HEX('20'), 'HEX 20'),
     (ast.Halt, 'Halt'),
     (ast.Input, 'Input'),
     (ast.Output, 'Output'),
+    (ast.Clear, 'Clear'),
 ])
 def test_instruction_to_string(instr, string):
     assert string == str(instr)
+
+
+@pytest.mark.parametrize('instr, value', [
+    (ast.DEC('10'), 10),
+    (ast.HEX('DEAD'), 57005),
+])
+def test_address_specifying_instruction_eval(instr, value):
+    assert value == instr.eval()
